@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      run: pnpm eslint --no-warn-ignored --fix {staged_files}
+      stage_fixed: true
+    prettier:
+      run: pnpm prettier --ignore-unknown --write {staged_files}
+      stage_fixed: true
