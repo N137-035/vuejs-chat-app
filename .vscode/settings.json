@@ -1,0 +1,6 @@
+{
+  // Defines a default formatter which takes precedence over all other formatter settings.
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Format a file on save.
+  "editor.formatOnSave": true
+}
