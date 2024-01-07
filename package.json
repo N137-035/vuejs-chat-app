@@ -17,12 +17,14 @@
   "dependencies": {
     "pinia": "^2.1.7",
     "vue": "^3.3.11",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.4.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@commitlint/parse": "^18.4.4",
+    "@mdi/font": "^7.4.47",
     "@tsconfig/node18": "^18.2.2",
     "@types/node": "^18.19.3",
     "@typescript-eslint/parser": "^6.18.0",
@@ -38,7 +40,9 @@
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
     "typescript": "~5.3.0",
+    "unplugin-auto-import": "^0.17.3",
     "vite": "^5.0.10",
+    "vite-plugin-vuetify": "^2.0.1",
     "vue-eslint-parser": "^9.3.2",
     "vue-tsc": "^1.8.25"
   }
