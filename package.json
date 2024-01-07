@@ -11,7 +11,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint --no-warn-ignored --fix .",
-    "format": "prettier --ignore-unknown --write src/"
+    "format": "prettier --ignore-unknown --write src/",
+    "changelog": "lefthook run changelog"
   },
   "dependencies": {
     "pinia": "^2.1.7",
@@ -31,6 +32,7 @@
     "@vue/tsconfig": "^0.5.0",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "gitmoji-changelog": "^2.3.0",
     "gitmojis": "^3.14.0",
     "lefthook": "^1.5.5",
     "npm-run-all2": "^6.1.1",

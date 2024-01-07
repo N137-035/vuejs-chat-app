@@ -11,3 +11,12 @@ commit-msg:
   scripts:
     commitlint.sh:
       runner: bash
+changelog:
+  piped: true
+  commands:
+    gitmoji-changelog:
+      priority: 1
+      run: pnpm gitmoji-changelog
+    format-changelog:
+      priority: 2
+      run: node .lefthook/changelog/format.js
