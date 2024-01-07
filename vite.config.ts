@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     vuetify(),
     AutoImport({
-      imports: ['vue', 'vue-router'],
+      imports: ['vue', 'vue-router', { '@vueuse/core': ['useDark'] }],
       dts: './src/auto-imports.d.ts'
     })
   ],
