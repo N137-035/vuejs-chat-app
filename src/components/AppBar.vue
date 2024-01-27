@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import type { Props } from '@/components/NavigationDrawer.vue'
-  import ThemeButton from '@/components/ThemeButton.vue'
 
   defineProps<Props>()
 
@@ -22,6 +21,7 @@
     </VAppBarTitle>
     <template #append>
       <ThemeButton />
+      <AccountButton />
     </template>
   </VAppBar>
 </template>

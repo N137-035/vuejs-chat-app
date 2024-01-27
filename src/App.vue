@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import AppBar from '@/components/AppBar.vue'
-  import NavigationDrawer from '@/components/NavigationDrawer.vue'
   import { toPrefixed } from '@/utils/package'
 
   const drawer = useLocalStorage(toPrefixed('DRAWER'), true)
