@@ -19,7 +19,8 @@ export default defineConfig({
           '@vueuse/core': ['useClipboard', 'useDark', 'useLocalStorage', 'useTitle', 'useToggle'],
           pinia: ['storeToRefs'],
           vuetify: ['useTheme'],
-          '@/stores/user': ['useUserStore']
+          '@/stores/user': ['useUserStore'],
+          '@/utils/consola': ['consola']
         }
       ],
       dts: './src/auto-imports.d.ts'

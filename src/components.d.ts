@@ -7,12 +7,14 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AccountButton: (typeof import('./components/AccountButton.vue'))['default']
-    AppBar: (typeof import('./components/AppBar.vue'))['default']
-    NavigationDrawer: (typeof import('./components/NavigationDrawer.vue'))['default']
-    RouterLink: (typeof import('vue-router'))['RouterLink']
-    RouterView: (typeof import('vue-router'))['RouterView']
-    ThemeButton: (typeof import('./components/ThemeButton.vue'))['default']
-    UserInfo: (typeof import('./components/UserInfo.vue'))['default']
+    AccountButton: typeof import('./components/AccountButton.vue')['default']
+    AddFriendButton: typeof import('./components/AddFriendButton.vue')['default']
+    AppBar: typeof import('./components/AppBar.vue')['default']
+    FriendsList: typeof import('./components/FriendsList.vue')['default']
+    NavigationDrawer: typeof import('./components/NavigationDrawer.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    ThemeButton: typeof import('./components/ThemeButton.vue')['default']
+    UserInfo: typeof import('./components/UserInfo.vue')['default']
   }
 }

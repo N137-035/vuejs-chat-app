@@ -11,7 +11,9 @@
 
 <template>
   <VMain class="d-flex flex-column fill-height justify-center align-center">
-    <div id="account-icon" class="mb-8" v-html="account"></div>
+    <VBadge color="info" content="You">
+      <div id="account-icon" class="mb-8" v-html="account"></div>
+    </VBadge>
     <UserInfo :user="user" />
   </VMain>
 </template>

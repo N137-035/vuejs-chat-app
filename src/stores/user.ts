@@ -1,4 +1,6 @@
+import { Peer } from 'peerjs'
 import { defineStore } from 'pinia'
+import { peerOptions, waitForPeerOpen } from '@/utils/peer'
 
 export interface User {
   id: string
@@ -6,8 +8,9 @@ export interface User {
 }
 
 export const useUserStore = defineStore('user', () => {
+  const peer = ref<Peer>(new Peer('', peerOptions))
   const user = ref<User>({
-    id: '00000000-0000-0000-0000-000000000000',
+    id: '',
     username: ''
   })
 
@@ -18,5 +21,11 @@ export const useUserStore = defineStore('user', () => {
     user.value.username = username
   }
 
-  return { user, id, username, setUsername }
+  waitForPeerOpen(peer.value)
+    .then(({ id }) => {
+      user.value.id = id
+    })
+    .catch((error) => consola.error(error))
+
+  return { peer, user, id, username, setUsername }
 })

@@ -9,5 +9,7 @@
 </script>
 
 <template>
-  <VNavigationDrawer :model-value="drawer" permanent />
+  <VNavigationDrawer :model-value="drawer" permanent>
+    <FriendsList />
+  </VNavigationDrawer>
 </template>
