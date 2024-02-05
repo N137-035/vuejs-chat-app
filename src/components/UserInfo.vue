@@ -13,7 +13,8 @@
 
   const userStore = useUserStore()
 
-  const { id, username } = toRefs(props.user)
+  const id = computed(() => props.user.id)
+  const username = computed(() => props.user.username)
   const { setUsername } = userStore
   const { copy, copied, isSupported } = useClipboard({ source: id.value })
   const usernameTextField = ref<InstanceType<typeof VTextField>>()

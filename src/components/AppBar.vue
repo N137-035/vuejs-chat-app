@@ -9,6 +9,9 @@
 
   const router = useRouter()
   const title = useTitle()
+  const userStore = useUserStore()
+
+  const { id } = storeToRefs(userStore)
 </script>
 
 <template>
@@ -21,7 +24,7 @@
     </VAppBarTitle>
     <template #append>
       <ThemeButton />
-      <AccountButton />
+      <AccountButton :id="id" />
     </template>
   </VAppBar>
 </template>

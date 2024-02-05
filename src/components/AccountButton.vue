@@ -1,9 +1,17 @@
 <script setup lang="ts">
-  const userStore = useUserStore()
+  export interface Props {
+    id: string
+    color?: string
+  }
 
-  const { id } = storeToRefs(userStore)
+  defineProps<Props>()
 </script>
 
 <template>
-  <VBtn icon="mdi-account" @click="$router.push({ name: 'user', params: { id } })" />
+  <VBtn
+    icon="mdi-account"
+    :color="color"
+    variant="text"
+    @click.stop="$router.push({ name: 'user', params: { id } })"
+  />
 </template>

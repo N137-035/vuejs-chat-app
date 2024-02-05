@@ -1,6 +1,6 @@
 import { Peer } from 'peerjs'
 import { defineStore } from 'pinia'
-import { peerOptions, waitForPeerOpen } from '@/utils/peer'
+import { peerOptions, setPeerListeners, waitForPeerOpen } from '@/utils/peer'
 
 export interface User {
   id: string
@@ -8,7 +8,8 @@ export interface User {
 }
 
 export const useUserStore = defineStore('user', () => {
-  const peer = ref<Peer>(new Peer('', peerOptions))
+  // @ts-ignore: Type is not assignable to type 'Peer'. ts(2322)
+  const peer: Ref<Peer> = ref(setPeerListeners(new Peer('', peerOptions)))
   const user = ref<User>({
     id: '',
     username: ''
@@ -16,6 +17,10 @@ export const useUserStore = defineStore('user', () => {
 
   const id = computed(() => user.value.id)
   const username = computed(() => user.value.username)
+
+  function isMe(id: string) {
+    return id === user.value.id
+  }
 
   function setUsername(username: string) {
     user.value.username = username
@@ -27,5 +32,5 @@ export const useUserStore = defineStore('user', () => {
     })
     .catch((error) => consola.error(error))
 
-  return { peer, user, id, username, setUsername }
+  return { peer, user, id, username, isMe, setUsername }
 })

@@ -20,6 +20,7 @@ export default defineConfig({
           pinia: ['storeToRefs'],
           vuetify: ['useTheme'],
           '@/stores/user': ['useUserStore'],
+          '@/stores/friend': ['useFriendStore'],
           '@/utils/consola': ['consola']
         }
       ],

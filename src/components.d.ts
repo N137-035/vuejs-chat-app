@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AccountButton: typeof import('./components/AccountButton.vue')['default']
     AddFriendButton: typeof import('./components/AddFriendButton.vue')['default']
+    AddFriendDialog: typeof import('./components/AddFriendDialog.vue')['default']
     AppBar: typeof import('./components/AppBar.vue')['default']
     FriendsList: typeof import('./components/FriendsList.vue')['default']
     NavigationDrawer: typeof import('./components/NavigationDrawer.vue')['default']
