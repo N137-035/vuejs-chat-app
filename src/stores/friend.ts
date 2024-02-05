@@ -4,8 +4,16 @@ import { defineStore } from 'pinia'
 import type { User } from '@/stores/user'
 import { setConnectionListeners } from '@/utils/peer'
 
+export interface Message {
+  id: string
+  date: Date
+  text: string
+  announce?: boolean
+}
+
 export interface Friend extends User {
   conn: DataConnection
+  messages: Message[]
 }
 
 export const useFriendStore = defineStore('friend', () => {
@@ -56,6 +64,31 @@ export const useFriendStore = defineStore('friend', () => {
     await waitForFriendAdded(id)
   }
 
+  function createMessage(id: string, text: string, announce?: boolean): Message {
+    return {
+      id,
+      date: new Date(),
+      text,
+      announce
+    }
+  }
+
+  function addMessage(id: string, message: Message) {
+    if (!friendExists(id)) return
+    const friend = getFriend(id)!
+    friend.messages.push(message)
+  }
+
+  function sendMessage(id: string, text: string, announce?: boolean) {
+    if (!friendExists(id)) return
+    const userStore = useUserStore()
+
+    const { conn } = getFriend(id)!
+    const message = createMessage(userStore.id, text, announce)
+    addMessage(id, message)
+    conn.send({ message: { ...message, date: message.date.toISOString() } })
+  }
+
   return {
     friends,
     friendExists,
@@ -63,6 +96,9 @@ export const useFriendStore = defineStore('friend', () => {
     addFriend,
     isOnline,
     waitForFriendAdded,
-    connectToFriend
+    connectToFriend,
+    createMessage,
+    addMessage,
+    sendMessage
   }
 })

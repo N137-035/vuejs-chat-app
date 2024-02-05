@@ -1,10 +1,12 @@
 import { Peer, type DataConnection, type PeerOptions } from 'peerjs'
+import type { Message } from '@/stores/friend'
 import type { User } from '@/stores/user'
 import { name } from '@/utils/package'
 
 export type UserData = { user: User }
-export type PeerData = UserData
-export type Data<T> = T extends 'user' ? UserData : never
+export type MessageData = { message: Message }
+export type PeerData = UserData | MessageData
+export type Data<T> = T extends 'user' ? UserData : T extends 'message' ? MessageData : never
 
 export type PeerOrDataConnection<T> = T extends Peer ? Peer : DataConnection
 
@@ -59,14 +61,31 @@ export const connectionOnOpen = (conn: DataConnection) => () => {
   const friendStore = useFriendStore()
 
   const { user } = storeToRefs(userStore)
-  const { addFriend } = friendStore
+  const { addFriend, addMessage, sendMessage } = friendStore
 
   conn.send({ user: user.value })
 
   conn.on('data', (data) => {
     consola.info('Data received:', data)
     if (isData(data, 'user')) {
-      addFriend({ ...data.user, conn })
+      const { user } = data
+      addFriend({ ...user, conn, messages: [] })
+      sendMessage(conn.peer, `${user.username} joined!`, true)
+    }
+    if (isData(data, 'message')) {
+      const { message } = data
+      message.date = new Date(message.date)
+      addMessage(conn.peer, message)
     }
   })
+  conn.on('close', connectionOnClose(conn))
+}
+
+export const connectionOnClose = (conn: DataConnection) => () => {
+  const userStore = useUserStore()
+  const friendStore = useFriendStore()
+
+  const { username } = storeToRefs(userStore)
+  const { sendMessage } = friendStore
+  sendMessage(conn.peer, `${username.value} left.`, true)
 }

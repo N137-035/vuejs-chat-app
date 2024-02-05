@@ -1,9 +1,10 @@
 <script setup lang="ts">
+  import { nth } from 'lodash'
   import { colorFromUuid } from 'uuid-color'
+  import type { Message } from '@/stores/friend';
 
   const friendStore = useFriendStore()
 
-  const dialog = ref(false)
   const { friends } = storeToRefs(friendStore)
   const { isOnline } = friendStore
   const badgeColor = (id: string) => (isOnline(id) ? 'success' : 'error')
@@ -11,15 +12,10 @@
 
 <template>
   <VList>
-    <VListItem title="Friends List">
-      <template #append>
-        <AddFriendButton @add-friend="dialog = true" />
-        <AddFriendDialog :dialog="dialog" @close-dialog="dialog = false" />
-      </template>
-    </VListItem>
+    <FriendsListTitle />
     <VDivider />
     <VListItem
-      v-for="{ id, username } in friends"
+      v-for="{ id, username, messages } in friends"
       :key="id"
       @click="$router.push({ name: 'chat', params: { id } })"
     >
@@ -30,6 +26,7 @@
         {{ username }}
         <VBadge class="d-inline-flex" :color="badgeColor(id)" dot inline />
       </VListItemTitle>
+      <VListItemSubtitle>{{ nth<Message>(messages, -1)?.text }}</VListItemSubtitle>
     </VListItem>
   </VList>
 </template>

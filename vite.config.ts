@@ -16,7 +16,16 @@ export default defineConfig({
         'vue',
         'vue-router',
         {
-          '@vueuse/core': ['useClipboard', 'useDark', 'useLocalStorage', 'useTitle', 'useToggle'],
+          '@vueuse/core': [
+            'onKeyStroke',
+            'useClipboard',
+            'useDark',
+            'useScroll',
+            'useLocalStorage',
+            'useTitle',
+            'useToggle'
+          ],
+          consola: ['consola'],
           pinia: ['storeToRefs'],
           vuetify: ['useTheme'],
           '@/stores/user': ['useUserStore'],
