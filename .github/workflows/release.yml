@@ -1,0 +1,31 @@
+name: Create GitHub Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check release notes
+        uses: actions/github-script@v6
+        id: changelog
+        with:
+          script: |
+            const changelog = require('fs').readFileSync('./CHANGELOG.md', 'utf8')
+            const version = `${{ github.ref_name }}`.slice(1)
+            const regexp = new RegExp(
+              String.raw`[\s\S]*<a name="${version}"></a>\n(?<releaseNotes>[\s\S]+?)\n{3}<a name="\d+\.\d+\.\d+"></a>[\s\S]*`
+            )
+            const { releaseNotes } = changelog.match(regexp).groups
+            core.setOutput('release-notes', releaseNotes)
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.changelog.outputs.release-notes }}
