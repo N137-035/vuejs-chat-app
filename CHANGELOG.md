@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="1.1.0"></a>
+## [v1.1.0](https://github.com/N137-035/vuejs-chat-app/compare/v1.0.0...v1.1.0) (2024-02-08)
+
+### Added
+
+- ✨ Add `ChangelogView.vue` [[a5b4ba0](https://github.com/N137-035/vuejs-chat-app/commit/a5b4ba045fe982e68e46113dd3c6deba381d30e9)]
+
+
 <a name="1.0.0"></a>
 ## [v1.0.0](https://github.com/N137-035/vuejs-chat-app/compare/v0.1.0...v1.0.0) (2024-02-06)
 
