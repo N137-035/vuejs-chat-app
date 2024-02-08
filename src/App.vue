@@ -11,7 +11,9 @@
 
       <NavigationDrawer :drawer="drawer" />
 
-      <RouterView />
+      <Suspense>
+        <RouterView />
+      </Suspense>
     </VLayout>
   </VApp>
 </template>

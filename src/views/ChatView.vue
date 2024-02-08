@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <VMain class="d-flex flex-column fill-height">
+  <VMain class="d-flex flex-column h-screen overflow-y-auto">
     <VAppBar class="text-center" :title="friend.username" elevation="1" density="compact" />
     <MessagesContainer ref="messagesContainer" :id="id" :messages="messages" />
     <VBottomNavigation>
@@ -34,10 +34,3 @@
     </VBottomNavigation>
   </VMain>
 </template>
-
-<style scoped>
-  .v-container {
-    height: calc(100vh - 168px);
-    overflow-y: auto;
-  }
-</style>

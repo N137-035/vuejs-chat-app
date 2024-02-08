@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import ChangelogView from '@/views/ChangelogView.vue'
 import ChatView from '@/views/ChatView.vue'
 import HomeView from '@/views/HomeView.vue'
 import UserView from '@/views/UserView.vue'
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/chats/:id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})',
       name: 'chat',
       component: ChatView
+    },
+    {
+      path: '/changelog',
+      name: 'changelog',
+      component: ChangelogView
     }
   ]
 })
@@ -29,7 +35,8 @@ router.beforeEach(({ name }, _from, next) => {
   const userStore = useUserStore()
   const { id, username } = storeToRefs(userStore)
 
-  if (name !== 'home' && (!id.value || !username.value)) next({ name: 'home' })
+  if (!['home', 'changelog'].includes(String(name)) && (!id.value || !username.value))
+    next({ name: 'home' })
   else if (name === 'home' && id.value && username.value)
     next({ name: 'user', params: { id: id.value } })
   else next()

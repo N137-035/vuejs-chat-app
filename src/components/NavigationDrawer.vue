@@ -10,6 +10,10 @@
 
 <template>
   <VNavigationDrawer :model-value="drawer" permanent>
-    <FriendsList />
+    <FriendsList>
+      <template #append>
+        <ChangelogListItem />
+      </template>
+    </FriendsList>
   </VNavigationDrawer>
 </template>

@@ -18,7 +18,9 @@
   "dependencies": {
     "@vueuse/core": "^10.7.1",
     "consola": "^3.2.3",
+    "dompurify": "^3.0.8",
     "lodash": "^4.17.21",
+    "marked": "^12.0.0",
     "peerjs": "^1.5.2",
     "pinia": "^2.1.7",
     "uuid": "^9.0.1",
@@ -33,6 +35,7 @@
     "@commitlint/parse": "^18.4.4",
     "@mdi/font": "^7.4.47",
     "@tsconfig/node18": "^18.2.2",
+    "@types/dompurify": "^3.0.5",
     "@types/lodash": "^4.14.202",
     "@types/node": "^18.19.3",
     "@types/uuid": "^9.0.7",
