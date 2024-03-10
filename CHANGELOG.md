@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="1.1.1"></a>
+## [v1.1.1](https://github.com/N137-035/vuejs-chat-app/compare/v1.1.0...v1.1.1) (2024-03-10)
+
+### Miscellaneous
+
+- 🩹 Remove unused props `drawer` passed to `AppBar.vue` [[c735b0c](https://github.com/N137-035/vuejs-chat-app/commit/c735b0c5782bdc09aa68de70386f046f35478032)]
+- 🩹 Change Import Attribute keyword to `with` [[6650e5c](https://github.com/N137-035/vuejs-chat-app/commit/6650e5c1b1ec4100aff2dd28b5379b16a8878b77)]
+
+
 <a name="1.1.0"></a>
 ## [v1.1.0](https://github.com/N137-035/vuejs-chat-app/compare/v1.0.0...v1.1.0) (2024-02-08)
 
