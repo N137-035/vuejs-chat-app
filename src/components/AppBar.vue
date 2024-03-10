@@ -1,8 +1,4 @@
 <script setup lang="ts">
-  import type { Props } from '@/components/NavigationDrawer.vue'
-
-  defineProps<Props>()
-
   defineEmits<{
     toggleDrawer: []
   }>()

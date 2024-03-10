@@ -7,7 +7,7 @@
 <template>
   <VApp>
     <VLayout>
-      <AppBar :drawer="drawer" @toggle-drawer="drawer = !drawer" />
+      <AppBar @toggle-drawer="drawer = !drawer" />
 
       <NavigationDrawer :drawer="drawer" />
 
