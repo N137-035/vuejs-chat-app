@@ -8,9 +8,9 @@ pre-commit:
       run: pnpm prettier --ignore-unknown --write {staged_files}
       stage_fixed: true
 commit-msg:
-  scripts:
-    commitlint.sh:
-      runner: bash
+  commands:
+    commitlint:
+      run: echo $(head -n1 {1}) | pnpm commitlint
 changelog:
   piped: true
   commands:
