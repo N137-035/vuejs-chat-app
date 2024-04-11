@@ -31,15 +31,14 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach(({ name }, _from, next) => {
+router.beforeEach(({ name }) => {
   const userStore = useUserStore()
   const { id, username } = storeToRefs(userStore)
+  const isUserValid = id.value && username.value
 
-  if (!['home', 'changelog'].includes(String(name)) && (!id.value || !username.value))
-    next({ name: 'home' })
-  else if (name === 'home' && id.value && username.value)
-    next({ name: 'user', params: { id: id.value } })
-  else next()
+  if (name === 'changelog') return
+  if (name === 'home' && isUserValid) return { name: 'user', params: { id: id.value } }
+  else if (name !== 'home' && !isUserValid) return { name: 'home' }
 })
 
 export default router
