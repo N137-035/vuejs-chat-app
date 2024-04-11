@@ -1,5 +1,30 @@
 # Changelog
 
+<a name="1.1.2"></a>
+## [v1.1.2](https://github.com/N137-035/vuejs-chat-app/compare/v1.1.1...v1.1.2) (2024-04-11)
+
+### Changed
+
+- ♻️ Use `return` instead of `next` in the navigation guard [[05a6f12](https://github.com/N137-035/vuejs-chat-app/commit/05a6f12ed67105b44553af07420eff6fe6f1e8e1)]
+- ⬆️ Update dependencies in `deploy.yml` [[a4df014](https://github.com/N137-035/vuejs-chat-app/commit/a4df0145f465a23d7a4d0565f8c539ff45a77c30)]
+- ⬆️ Bump express in the npm_and_yarn group across 1 directory [[fdd6f1b](https://github.com/N137-035/vuejs-chat-app/commit/fdd6f1b40ab133d7c639ab005dec4ffe0828b8b3)]
+- ⬆️ Bump express from 4.18.2 to 4.19.2 [[98fce55](https://github.com/N137-035/vuejs-chat-app/commit/98fce55508fdc44e1ec727f031e41d4a6ae2286e)]
+- ⬆️ Bump vite from 5.0.11 to 5.0.13 [[2009c6f](https://github.com/N137-035/vuejs-chat-app/commit/2009c6ff45107604e6420dbeec4a14ce34e2f587)]
+
+### Fixed
+
+- 🐛 Change `peerOptions.host` to `localhost` [[9a94378](https://github.com/N137-035/vuejs-chat-app/commit/9a94378c3c7e12b500a8c8796970996f25508c8f)]
+
+### Miscellaneous
+
+- 🚀 Deploy to Vercel [[1f890e4](https://github.com/N137-035/vuejs-chat-app/commit/1f890e4bbe505aff82c276c9a5e39704dfdf6a5d)]
+- 🔨 Update `commit-msg` hook [[d805168](https://github.com/N137-035/vuejs-chat-app/commit/d8051682f1aa75f512cda134865044f5cb22e1eb)]
+-  Merge pull request [#3](https://github.com/N137-035/vuejs-chat-app/issues/3) from N137-035/dependabot/npm_and_yarn/npm_and_yarn-e0cd778f82 [[927c640](https://github.com/N137-035/vuejs-chat-app/commit/927c6409e62b87eb7f4b434873c23fb0638b27d9)]
+-  Merge pull request [#2](https://github.com/N137-035/vuejs-chat-app/issues/2) from N137-035/dependabot/npm_and_yarn/express-4.19.2 [[e7ce23f](https://github.com/N137-035/vuejs-chat-app/commit/e7ce23f72c16e537ccf767777f82549189bf77cd)]
+-  Merge pull request [#1](https://github.com/N137-035/vuejs-chat-app/issues/1) from N137-035/dependabot/npm_and_yarn/vite-5.0.13 [[2a0aac6](https://github.com/N137-035/vuejs-chat-app/commit/2a0aac66bcb94f90b3fd3e1f7c14214a76080977)]
+- 🩹 Remove `Vue.vscode-typescript-vue-plugin` from `extensions.json` [[8fd7756](https://github.com/N137-035/vuejs-chat-app/commit/8fd7756ac5cc6af7a021ef831ed4461ab23e6ec5)]
+
+
 <a name="1.1.1"></a>
 ## [v1.1.1](https://github.com/N137-035/vuejs-chat-app/compare/v1.1.0...v1.1.1) (2024-03-10)
 
