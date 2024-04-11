@@ -3,11 +3,9 @@
     addFriend: []
   }>()
 
-  const route = useRoute()
   const userStore = useUserStore()
 
-  const routeName = computed(() => route.name)
-  const { id, username } = storeToRefs(userStore)
+  const { isUserValid } = storeToRefs(userStore)
 </script>
 
 <template>
@@ -18,7 +16,7 @@
         icon="mdi-plus"
         size="small"
         variant="plain"
-        :disabled="routeName === 'home' || !id || !username"
+        :disabled="!isUserValid"
         @click="$emit('addFriend')"
       />
     </template>

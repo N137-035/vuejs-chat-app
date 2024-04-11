@@ -32,12 +32,11 @@ const router = createRouter({
 
 router.beforeEach(({ name }) => {
   const userStore = useUserStore()
-  const { id, username } = storeToRefs(userStore)
-  const isUserValid = id.value && username.value
+  const { id, isUserValid } = storeToRefs(userStore)
 
   if (name === 'changelog') return
-  if (name === 'home' && isUserValid) return { name: 'user', params: { id: id.value } }
-  else if (name !== 'home' && !isUserValid) return { name: 'home' }
+  if (name === 'home' && isUserValid.value) return { name: 'user', params: { id: id.value } }
+  else if (name !== 'home' && !isUserValid.value) return { name: 'home' }
 })
 
 export default router

@@ -7,7 +7,7 @@
   const title = useTitle()
   const userStore = useUserStore()
 
-  const { id } = storeToRefs(userStore)
+  const { id, isUserValid } = storeToRefs(userStore)
 </script>
 
 <template>
@@ -20,7 +20,7 @@
     </VAppBarTitle>
     <template #append>
       <ThemeButton />
-      <AccountButton :id="id" />
+      <AccountButton v-if="$route.name !== 'home' && isUserValid" :id="id" />
     </template>
   </VAppBar>
 </template>

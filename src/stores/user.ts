@@ -17,6 +17,7 @@ export const useUserStore = defineStore('user', () => {
 
   const id = computed(() => user.value.id)
   const username = computed(() => user.value.username)
+  const isUserValid = computed(() => id.value && username.value)
 
   function isMe(id: string) {
     return id === user.value.id
@@ -32,5 +33,5 @@ export const useUserStore = defineStore('user', () => {
     })
     .catch((error) => consola.error(error))
 
-  return { peer, user, id, username, isMe, setUsername }
+  return { peer, user, id, username, isUserValid, isMe, setUsername }
 })
