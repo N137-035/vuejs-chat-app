@@ -18,7 +18,7 @@ export const isData = <T extends 'user' | 'message'>(data: unknown, type: T): da
 
 export const peerOptions: PeerOptions | undefined = import.meta.env.DEV
   ? {
-      host: '/',
+      host: 'localhost',
       port: 9000,
       key: name
     }
