@@ -1,6 +1,6 @@
 # Vue.js Chat App
 
-[![Deploy to GitHub Pages](https://github.com/N137-035/vuejs-chat-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/N137-035/vuejs-chat-app/actions/workflows/deploy.yml)
+[![Vercel](https://img.shields.io/github/deployments/N137-035/vuejs-chat-app/production?style=flat&logo=Vercel&label=Vercel)](https://vuejs-chat-app.vercel.app)
 
 This template should help get you started developing with Vue 3 in Vite.
 

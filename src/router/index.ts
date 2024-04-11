@@ -3,10 +3,9 @@ import ChangelogView from '@/views/ChangelogView.vue'
 import ChatView from '@/views/ChatView.vue'
 import HomeView from '@/views/HomeView.vue'
 import UserView from '@/views/UserView.vue'
-import { name } from '@/utils/package'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.PROD ? name : '/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
