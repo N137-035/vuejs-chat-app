@@ -7,16 +7,14 @@
     user: User
   }
 
-  const props = withDefaults(defineProps<Props>(), {
-    hideId: false
-  })
+  const { hideId = false, user } = defineProps<Props>()
 
   const userStore = useUserStore()
 
-  const id = computed(() => props.user.id)
-  const username = computed(() => props.user.username)
+  const id = computed(() => user.id)
+  const username = computed(() => user.username)
   const { setUsername } = userStore
-  const { copy, copied, isSupported } = useClipboard({ source: id.value })
+  const { copy, copied, isSupported } = useClipboard({ source: id })
   const usernameTextField = ref<InstanceType<typeof VTextField>>()
   const isUsernameValid = computed(() => usernameTextField.value?.isValid)
   const usernameRules = [

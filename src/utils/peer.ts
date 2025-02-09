@@ -3,28 +3,28 @@ import type { Message } from '@/stores/friend'
 import type { User } from '@/stores/user'
 import { name } from '@/utils/package'
 
+export type _Peer = Omit<Peer, '_Serializer'>
 export type UserData = { user: User }
 export type MessageData = { message: Message }
 export type PeerData = UserData | MessageData
 export type Data<T> = T extends 'user' ? UserData : T extends 'message' ? MessageData : never
 
-export type PeerOrDataConnection<T> = T extends Peer ? Peer : DataConnection
+export type PeerOrDataConnection<T> = T extends _Peer ? _Peer : DataConnection
 
 export const isData = <T extends 'user' | 'message'>(data: unknown, type: T): data is Data<T> => {
-  if (!data || typeof data !== 'object') return false
-  if (type in data) return true
+  if (data && typeof data === 'object' && type in data) return true
   return false
 }
 
-export const peerOptions: PeerOptions | undefined = import.meta.env.DEV
-  ? {
+export const peerOptions = import.meta.env.DEV
+  ? ({
       host: 'localhost',
       port: 9000,
       key: name
-    }
+    } satisfies PeerOptions)
   : undefined
 
-export function waitForPeerOpen<T extends Peer | DataConnection>(
+export function waitForPeerOpen<T extends _Peer | DataConnection>(
   peer: T,
   timeout: number = 10000
 ): Promise<PeerOrDataConnection<T>> {

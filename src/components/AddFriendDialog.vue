@@ -5,7 +5,7 @@
     dialog?: boolean
   }
 
-  withDefaults(defineProps<Props>(), { dialog: false })
+  const { dialog = false } = defineProps<Props>()
 
   const emit = defineEmits<{
     closeDialog: []

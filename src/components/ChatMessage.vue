@@ -7,25 +7,22 @@
     color?: string
   }
 
-  const props = withDefaults(defineProps<Props>(), {
-    color: 'transparent'
-  })
+  const { message, color = 'transparent' } = defineProps<Props>()
 
   const userStore = useUserStore()
 
-  const { message, color } = toRefs(props)
-  const isMe = computed(() => userStore.isMe(message.value.id))
+  const isMe = computed(() => userStore.isMe(message.id))
   const messageStyle = computed(() => [
     'd-flex align-center',
     isMe.value ? 'justify-end' : 'justify-start'
   ])
   const textTimeStyle = computed(() => ['d-flex align-end', { 'flex-row-reverse': isMe.value }])
-  const textStyle = computed(() => `px-2 py-1 text-left bg-${color.value} rounded`)
+  const textStyle = computed(() => `px-2 py-1 text-left bg-${color} rounded`)
   const timeStyle = computed(() => [
     'px-1 text-caption text-disabled',
     isMe ? 'text-right' : 'text-left'
   ])
-  const time = computed(() => message.value.date.toLocaleTimeString([], { timeStyle: 'short' }))
+  const time = computed(() => message.date.toLocaleTimeString([], { timeStyle: 'short' }))
 </script>
 
 <template>

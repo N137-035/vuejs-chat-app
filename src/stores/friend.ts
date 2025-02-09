@@ -52,10 +52,7 @@ export const useFriendStore = defineStore('friend', () => {
   }
 
   async function connectToFriend(id: string) {
-    if (friendExists(id)) {
-      const error = new Error('The friend already exists.')
-      throw error
-    }
+    if (friendExists(id)) throw new Error('The friend already exists.')
 
     const userStore = useUserStore()
     const { peer } = storeToRefs(userStore)

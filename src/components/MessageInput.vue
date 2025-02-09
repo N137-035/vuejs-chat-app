@@ -5,18 +5,17 @@
     id: string
   }
 
-  const props = defineProps<Props>()
+  const { id } = defineProps<Props>()
 
   const friendStore = useFriendStore()
 
-  const { id } = toRefs(props)
   const { sendMessage } = friendStore
   const messageTextField = ref<InstanceType<typeof VTextField>>()
   const text = ref('')
 
   function send() {
     if (!text.value) return
-    sendMessage(id.value, text.value)
+    sendMessage(id, text.value)
     text.value = ''
   }
 

@@ -3,9 +3,7 @@
     drawer?: boolean
   }
 
-  withDefaults(defineProps<Props>(), {
-    drawer: true
-  })
+  const { drawer = true } = defineProps<Props>()
 </script>
 
 <template>

@@ -31,7 +31,8 @@ export default defineConfig({
           vuetify: ['useTheme'],
           '@/stores/user': ['useUserStore'],
           '@/stores/friend': ['useFriendStore'],
-          '@/utils/consola': ['consola']
+          '@/utils/consola': ['consola'],
+          '@/utils/package': ['toPrefixed']
         }
       ],
       dts: './src/auto-imports.d.ts'

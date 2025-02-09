@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { toPrefixed } from '@/utils/package'
-
   const theme = useTheme()
   const isDark = useDark({
     storageKey: toPrefixed('COLOR_THEME'),

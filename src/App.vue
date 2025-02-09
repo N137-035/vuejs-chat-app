@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { toPrefixed } from '@/utils/package'
-
   const drawer = useLocalStorage(toPrefixed('DRAWER'), true)
 </script>
 
